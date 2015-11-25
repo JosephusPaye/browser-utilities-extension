@@ -131,10 +131,10 @@ gulp.task('fonts', function fonts() {
  */
 gulp.task('html', function html() {
     return gulp.src(paths.source.html)
-        // .pipe(gulpif(config.production, minifyHtml({
-        //     spare: true,
-        //     empty: true
-        // })))
+        .pipe(gulpif(config.production, minifyHtml({
+            spare: true,
+            empty: true
+        })))
         .pipe(gulp.dest(paths.destination.html));
 });
 
