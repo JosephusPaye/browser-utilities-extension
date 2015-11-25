@@ -1,0 +1,44 @@
+{
+  "name": "browser-utilities",
+  "authors": [
+    "Josephus Paye II <j.paye96@gmail.com>"
+  ],
+  "description": "Browser Utilities Chrome extension",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "browser-utilities",
+    "chrome",
+    "extension"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vue": "~1.0.10",
+    "vue-router": "~0.7.7",
+    "qr-js": "~1.1.4",
+    "axios": "~0.7.0"
+  },
+  "overrides": {
+    "vue": {
+      "main": "dist/vue.csp.js"
+    },
+    "axios": {
+      "main": "dist/axios.min.js"
+    },
+    "qr-js": {
+      "main": "qr.min.js"
+    },
+    "vue-router": {
+      "main": "dist/vue-router.min.js"
+    }
+  }
+}

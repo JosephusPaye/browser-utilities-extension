@@ -1,0 +1,30 @@
+.list-group {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 0;    
+    
+    .list-item {
+        cursor: default;
+        color: $text_black;
+        text-decoration: none;
+        padding: 12px 15px;
+        background: #F3F3F3;
+        margin-bottom: 8px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        border-radius: 2px;
+        -webkit-user-select: none;
+        
+        &:hover,
+        &:focus {
+            color: black;
+            background-color: #EEE;
+            border: 1px solid #AAA;
+        }
+        
+        &:active {
+            background-color: #DDD;
+        }
+    }
+}

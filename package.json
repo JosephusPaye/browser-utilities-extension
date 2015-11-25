@@ -1,0 +1,34 @@
+{
+  "name": "browser-utilities",
+  "version": "2.0.0",
+  "description": "Browser Utilities for Chrome",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "extension",
+    "chrome",
+    "browser",
+    "utilities"
+  ],
+  "author": "Josephus Paye II",
+  "license": "MIT",
+  "devDependencies": {
+    "del": "^2.1.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-filter": "^3.0.1",
+    "gulp-if": "^2.0.0",
+    "gulp-merge": "^0.1.1",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-stylus": "^2.1.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "main-bower-files": "^2.9.0"
+  }
+}

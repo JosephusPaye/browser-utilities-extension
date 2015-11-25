@@ -1,0 +1,52 @@
+{
+    "filenames": {
+        "vendor": {
+            "js": "vendor.js",
+            "css": "vendor.css"
+        },
+        "app": {
+            "js": "app.js",
+            "css": "app.css"
+        }
+    },
+
+    "paths": {
+        "source": {
+            "css": "./source/stylus/app.styl",
+            "html": "./source/html/**/!(_)*.html",
+            "fonts": "./source/fonts/**/!(_)*.*(eot|ttf|woff|woff2|otf|svg)",
+            "images": "./source/images/**/!(_)*.*(jpg|png|gif|svg)",
+            "javascript": [
+                "./source/javascript/Start.js",
+                "./source/javascript/Helper.js",
+                "./source/javascript/components/!(_)*.js",
+                "./source/javascript/App.js"
+            ],
+            "chrome": {
+                "js": "./source/chrome/**/!(_)*.js",
+                "manifestDev": "./source/chrome/manifest-dev.json",
+                "manifest": "./source/chrome/manifest.json"
+            }
+        },
+
+        "watch": {
+            "css": "./source/stylus/**/*.styl",
+            "html": "./source/html/**/!(_)*.html",
+            "images": "./source/images/**/!(_)*.*(jpg|png|gif|svg)",
+            "fonts": "./source/fonts/**/!(_)*.*(eot|ttf|woff|woff2|otf|svg)",
+            "chrome": "./source/chrome/**/!(_)*.*(json|js)",
+            "javascript": "./source/javascript/**/!(_)*.js"
+        },
+
+        "destination": {
+            "html": "./app",
+            "chrome": "./app",
+            "css": "./app/assets/css",
+            "images": "./app/assets/img",
+            "javascript": "./app/assets/js",
+            "fonts": "./app/assets/css/fonts"
+        },
+
+        "build": "./app"
+    }
+}

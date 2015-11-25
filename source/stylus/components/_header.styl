@@ -1,0 +1,55 @@
+header {
+    height: 46px;
+    width: 100%;
+    box-shadow: 0 0 10px #999;
+    
+    display: flex;
+    
+    & > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: default;
+        user-select: none;
+        -webkit-user-select: none
+    }
+    
+    .left {
+        width: 40px;
+    }
+    
+    .title {
+        display: flex;
+        flex: 1;
+        font-size: 15px;
+    }
+    
+    .right {
+        display: flex;
+        width: 40px;
+    }
+    
+    .button {
+        color: $icon_black;
+        font-size: 20px;
+        
+        &:hover,
+        &:focus {
+            color: black;
+            padding: 4px;
+            background-color: #DEDEDE;
+        }
+        
+        &:hover {
+            border-radius: 50%;
+        }
+        
+        &:focus {
+            border-radius: 2px;
+        }
+        
+        &:active {
+            background: #EEE;
+        }
+    }
+}

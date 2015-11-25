@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Browser Utilities</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/app.css">
+</head>
+<body id="app">
+    <header>
+        <div class="left">
+            <i title="Back" 
+               @click="goBack"
+               v-if="view.canGoBack" 
+               tabindex="0" role="button" 
+               class="material-icons button" 
+           >arrow_back</i>
+        </div>
+        <div class="title" v-html="view.title"></div>
+        <div class="right">
+            <i title="About" 
+               v-if="view.showAboutBtn" 
+               tabindex="0" role="button" 
+               class="material-icons button" 
+               v-link="{ path: '/about' }"
+           >info_outline</i>
+        </div>
+    </header>
+
+    <router-view></router-view>
+
+    <template id="home">
+        <ul class="list-group">
+            <a v-link="{ path: '/qr-code' }" class="list-item">Generate QR code</a>
+            <a v-link="{ path: '/short-link' }" class="list-item">Generate short link</a>
+            <a v-link="{ path: '/wayback-machine' }" class="list-item" title="Access page history on the Internet Archive&trade;">Internet Archive&trade; history</a>
+        </ul>
+    </template>
+    
+    <template id="about">
+        <div class="page text-center">
+            <p class="padded text-thicker">Browser Utilities - v{{about.version}}</p>
+            <p>Developed and maintained by<br> <a href="https://chrome.google.com/webstore/search/Josephus%20Paye%20II?hl=en" target="_blank">Josephus Paye II</a></p>
+        </div>
+    </template>
+    
+    <template id="generate-qr">
+        <div class="page text-center">
+            <input type="text" class="padded-input" v-model="qrInput" />
+            <img :src="qrImageUrl" alt="Generated QR Code" />
+            <p class="mt5 mb0"><a @click="downloadQRCode" class="button">Download</a>
+        </div>
+    </template>
+
+    <template id="wayback-machine">
+        <div class="page text-center page-generate-qr">
+            <input type="text" class="padded-input" v-model="inputUrl" debounce="500" />
+
+            <div class="padded" v-show="loading">
+              <loader></loader>
+            </div>
+
+            <div class="content" v-else>
+              <div class="icon mt10">
+                  <i class="material-icons available" v-show="page.available">check_circle</i>
+                  <i class="material-icons not-available" v-else>cancel</i>
+
+                  <p v-html="page.available ? 'Available in the Internet Archive&trade;' : 'Not available in the Internet Archive&trade;'" class="mt5"></p>
+              </div>
+
+              <table class="meta" v-show="page.available">
+                  <tr>
+                      <td>Last updated: </td><td class="value" v-text="page.latestSnapshotDate"></td>
+                  </tr>
+              </table>
+
+              <a v-show="page.available" class="button mt10 mb10" :href="page.openUrl" target="_blank">Open in Wayback Machine&trade;</a>
+            </div>
+        </div>
+    </template>
+
+    <template id="generate-short-link">
+        <div class="page text-center page-generate-qr">
+            <input type="text" class="padded-input" v-model="inputUrl" debounce="500" />
+
+            <div class="padded" v-show="loading">
+              <loader></loader>
+            </div>
+
+            <div class="content" v-else>
+              <div class="icon mt10" v-if="requestError">
+                  <i class="material-icons not-available">cancel</i>
+                  <p class="mt5 ml15 mr15">An error occured while generating the short link. Try again later.</p>
+              </div>
+
+              <div class="generated-link" v-else>
+                  <p>Shortened link:</p>
+                  <a :href="generatedLink.url" target="_blank" class="link" v-text="generatedLink.url"></a>
+              </div>
+
+              <button v-if="!requestError" class="button mt10 mb10" @click="copyLink">Copy link</button>
+              <p class="mt5" v-if="copySuccess">Copied!</p>
+
+            </div>
+        </div>
+    </template>
+
+    <template id="loader">
+        <svg class="spinner" width="32px" height="32px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+           <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+        </svg>
+    </template>
+
+    <textarea id="clipboard-spot"></textarea>
+
+    <script src="assets/js/vendor.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
