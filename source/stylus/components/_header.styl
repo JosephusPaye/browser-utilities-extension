@@ -1,7 +1,8 @@
 header {
     height: 46px;
     width: 100%;
-    box-shadow: 0 0 10px #999;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #CCC;
     
     display: flex;
     
@@ -32,24 +33,19 @@ header {
     .button {
         color: $icon_black;
         font-size: 20px;
+        border-radius: 50%;
+        outline: none;
         
         &:hover,
         &:focus {
-            color: black;
             padding: 4px;
-            background-color: #DEDEDE;
-        }
-        
-        &:hover {
-            border-radius: 50%;
-        }
-        
-        &:focus {
-            border-radius: 2px;
+            color: white;
+            background-color: $blue_highlight;
         }
         
         &:active {
-            background: #EEE;
+            color: white;
+            background-color: $blue_highlight;
         }
     }
 }
